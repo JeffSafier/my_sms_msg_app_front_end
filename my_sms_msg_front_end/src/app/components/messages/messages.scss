@@ -1,0 +1,48 @@
+.message{
+    // display: flex;
+    width: 50%;
+    // flex: 1;
+    // left: 5%;
+    // justify-content: flex-end;
+    //  flex-direction: column;
+}
+
+.phone {
+       
+    // display: flex;
+    font-weight: bold;
+    width: 15%;
+    // justify-content: flex-start;
+    text-align: left;
+}
+
+.created {
+       
+    display: flex;
+    width: 85%;
+    justify-content: flex-end;
+ 
+}
+
+h2 {
+    width: 100%;
+    white-space: nowrap;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.msg{
+    padding: 5px;
+    border: 1px, solid, black;
+    max-width: 87%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+

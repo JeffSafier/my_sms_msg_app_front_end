@@ -1,0 +1,38 @@
+<h2>
+    Sign Up
+</h2>
+<form [formGroup]="signupForm"  (ngSubmit)="onSubmit()">
+    <p>
+        <label for="email">Email:</label>
+        <input id="email" type = "text" formControlName="email" />
+    </p>
+    @if (signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched){
+        <span>Email is required.</span>
+    }
+    @else if (signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched){
+        <span>Email is invalid.</span>
+    }
+
+    <p>
+        <label for="password">Password:</label>
+        <input id = password type = "password" formControlName="password" />
+    </p>
+    @if (signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched){
+        <span>Password is required.</span>
+    }  
+    @else if (signupForm.get('password')?.hasError('minlength') && signupForm.get('password')?.touched){
+        <span>>Password is too short.</span>
+    }
+    <p>
+    <label for="password_confirmation">Confirm Password:</label>
+    <input id = password_confirmation type = "password" formControlName="password_confirmation" />
+     @if (signupForm.get('password_confirmation')?.hasError('passwordmatchValidator') && signupForm.get('password_confirmation')?.touched){
+        <span>Password must match.</span>
+    }  
+
+    </p>
+    <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+
+</form>
+
+

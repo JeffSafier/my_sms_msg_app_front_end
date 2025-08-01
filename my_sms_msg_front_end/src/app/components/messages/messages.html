@@ -1,0 +1,26 @@
+
+<div style="background-color: bisque; height: 95%; width: 90%;">
+<h2>Message History ({{all_messages.length}})</h2>
+
+    @if(all_messages.length) {
+        <ul style="width: 100%">
+            @for (msg of all_messages; track msg.id){
+                   <li>
+                    <!-- <div style="width: 100%;"> -->
+                        <span class="phone">
+                            {{msg.phone_number}}
+                        </span>
+                       <span class="created">
+                            {{msg.created_at | date: 'EEEE, yy-MM-dd HH:mm:ss'}}
+                        </span>
+                    <!-- </div> -->
+                    <div class="msg">
+                        {{msg.message}}
+                    </div>
+                   </li> 
+            }
+        </ul>
+                
+    }
+</div>
+ 

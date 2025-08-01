@@ -1,0 +1,31 @@
+<h2>
+    Sign In
+</h2>
+<form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+    <p>
+        <label for="email">Email:</label>
+        <input id="email" type = "text" formControlName="email" />
+    </p>
+    @if (loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched){
+        <span>Email is required.</span>
+    }
+    @else if (loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched){
+        <span>Email is invalid.</span>
+    }
+
+    <p>
+        <label for="password">Password:</label>
+        <input id = password type = "password" formControlName="password" />
+    </p>
+    @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched){
+        <span>Password is required.</span>
+    }  
+    @else if (loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched){
+        <span>>Password is too short.</span>
+    }
+    
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+
+</form>
+
+<a routerLink="/signup" routerLinkActive="router-link-active" >Sign Up</a>

@@ -1,0 +1,27 @@
+<div style="background-color: bisque; height: 95%;">
+<h2>
+    New Message
+</h2>
+<form [formGroup]="message_InputForm"  (ngSubmit)="onSubmit()">
+    <p>
+        <label for="phone_number">Phone Number</label>
+        <input id="phone_number" type = "text" style="width: 452px;" formControlName="phone_number" />
+    </p>
+    @if (message_InputForm.get('phone_number')?.hasError('required') && message_InputForm.get('phone_number')?.touched){
+        <span>Phone Number is required.</span>
+    }
+    <p>
+        <label for="message">Message</label>
+        <textarea  name="message" rows="10" cols="60" formControlName="message"></textarea>
+    </p>
+    @if (message_InputForm.get('message')?.hasError('required') && message_InputForm.get('message')?.touched){
+        <span>Message is required.</span>
+    } 
+    <div class="container" style= "width: 37%">
+        <button class="clear_button" (click)="clearMessageForm()"  [disabled]="isClearDisabled()">Clear</button>
+        <button type="submit" class="submit_button" [disabled]="!message_InputForm.valid">Submit</button>
+    </div>
+
+</form> 
+
+</div>
